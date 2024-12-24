@@ -14,15 +14,22 @@
 #ifndef Oled1306_h
   #define Oled1306_h
 
-  #include  "OledConfig.h"              // configuration by application file
   #include  "Arduino.h"
   #include  "stdlib.h"
-  #include  "Clock.h"
+  #include  "Adafruit_GFX.h"
+  #include  "Adafruit_SSD1306.h"                      // https://github.com/adafruit/Adafruit_SSD1306
+  #include  "cppQueue.h"                              // https://github.com/SMFSW/Queue/tree/master
 
-  #ifndef _LOGGMEOLED                       // enable logging print
+  #include  "Clock.h"
+  #include  "Utilities.h"
+  #include  "WifiNet.h"
+
+  #include  "OledConfig.h"                            // configuration by application file
+
+  #ifndef _LOGGMEOLED                                 // enable logging print
     #define _LOGGMEOLED 1
   #endif  //_LOGGMEOLED
-  #ifndef _DEBUGOLED                      // endable debug prints
+  #ifndef _DEBUGOLED                                  // endable debug prints
     #define _DEBUGOLED    0
   #endif  //_DEBUGOLED
 

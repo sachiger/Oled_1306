@@ -44,13 +44,6 @@
  * 
  */
 
-
-#include  "Adafruit_GFX.h"
-#include  "Adafruit_SSD1306.h"                      // https://github.com/adafruit/Adafruit_SSD1306
-#include  "Clock.h"
-#include  "Utilities.h"
-#include  "WifiNet.h"
-#include  "cppQueue.h"                              // https://github.com/SMFSW/Queue/tree/master
 #include  "Oled_1306.h"
 
 TimePack  _SysClock_Oled ;
