@@ -399,7 +399,10 @@ void Oled_1306::DisplayMix( TimePack _SysClock, uint8_t type, const char* row0_c
    */
   uint8_t len0=0;
   uint8_t len1=0;
-  if ( row0_cst!=nullptr ) len0 = strlen(row0_cst);
+  #if _DEBUGOLED==1
+  
+  #endif  //_DEBUGOLED==1
+  if ( row0_cst!=nullptr ) len0 = strlen_P(row0_cst);
   if ( len0>PAYLOADMAXLEN ) return;                       // error
   if ( row1_str!=nullptr )  len1 = strlen(row1_str);
   if ( len1>PAYLOADMAXLEN ) return;                       // error

@@ -1,6 +1,6 @@
 {
     "name": "Oled_1306",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "Library for controlling OLED 1306 displays",
     "repository": {
       "type": "git",

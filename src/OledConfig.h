@@ -6,7 +6,7 @@
 
 #ifndef OledConfig_h
   #define OledConfig_h
-  #define Oled_1306_Version "2.0.1"
+  #define Oled_1306_Version "2.0.2"
   //
   // display definitions
   // row 0
