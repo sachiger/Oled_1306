@@ -1,0 +1,33 @@
+#######################################
+# Syntax Coloring Map For Oled1306
+# Created by Sachi Gerlitz, 10-VII-2024 ver 1
+#######################################
+#######################################
+# Library (KEYWORD3)
+#######################################
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+Oled1306   KEYWORD1
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+begin   KEYWORD2
+PeekQueueOLED KEYWORD2
+PopQueueOLED  KEYWORD2
+PushQueueOLED  KEYWORD2
+DisplayLine  KEYWORD2
+DisplayProg  KEYWORD2
+DisplayMemory  KEYWORD2
+DisplayMix  KEYWORD2
+SetCharsToRow  KEYWORD2
+SetTimeToRow2  KEYWORD2
+DrawLinePattern  KEYWORD2
+DrawRecPattern  KEYWORD2
+clear  KEYWORD2
+show  KEYWORD2
+InQueueOLED  KEYWORD2
+
+
+
+
