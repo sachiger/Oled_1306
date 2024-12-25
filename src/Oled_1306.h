@@ -30,7 +30,7 @@
     #define _LOGGMEOLED 1
   #endif  //_LOGGMEOLED
   #ifndef _DEBUGOLED                                  // endable debug prints
-    #define _DEBUGOLED    1
+    #define _DEBUGOLED    0
   #endif  //_DEBUGOLED
 
   /****************************************************************************************/

@@ -1,6 +1,6 @@
 {
     "name": "Oled_1306",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "description": "Library for controlling OLED 1306 displays",
     "repository": {
       "type": "git",
@@ -16,5 +16,10 @@
         }],
     "license": "MIT",
     "frameworks": ["arduino"],
-    "platforms": ["espressif8266"]
+    "platforms": ["espressif8266"],
+    "build": {
+        "flags": [
+          "-D Oled_1306_Version=\\\"2.0.3\\\""
+        ]
+      }
 }

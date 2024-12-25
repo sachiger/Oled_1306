@@ -1,12 +1,14 @@
 /*
  * OledConfig.h  is a configuraiton file for Oled_1306.h library 
  *
- * Created by Sachi Gerlitz, 24-XII-2024 ver 2
+ * Created by Sachi Gerlitz, 25-XII-2024 ver 2
  */
 
 #ifndef OledConfig_h
   #define OledConfig_h
-  #define Oled_1306_Version "2.0.2"
+  #ifndef Oled_1306_Version
+    #define Oled_1306_Version "2.0.3"
+  #endif  //Oled_1306_Version
   //
   // display definitions
   // row 0
