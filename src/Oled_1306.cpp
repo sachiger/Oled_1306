@@ -1,6 +1,6 @@
 /*
  * Oled1306.cpp library for Oled1306OLED display SSD1306 applications
- * Created by Sachi Gerlitz, 10-VII-2024 ver 1
+ * Created by Sachi Gerlitz
  * 
  * in this file
  *  constructor:  Oled1306;
@@ -8,7 +8,8 @@
  *                DrawLinePattern; DrawRecPattern; clear; show; InQueueOLED; getVersion;
  *                PeekQueueOLED; DisplayProg; SetCharsToRow;
  * 
- * V2 24-XII-2024
+ *  V2  29-XII-2024   [improved reset, delay as parameter]
+ *  V1  10-VII-2024
  * 
  * Display      +---------------------------------------+
  *              | line 0 up to 11 chars                 |
@@ -70,7 +71,7 @@ Oled_1306::Oled_1306(bool activate) {
 }     // end of Clock 
 
 //****************************************************************************************/
-bool Oled_1306::begin(TimePack _SysClock, uint8_t option){
+bool Oled_1306::begin(TimePack _SysClock, uint8_t option, uint16_t PostDisplayDelay){
   /*
    * method to initiate D1306 OLED display
    * <_SysClock>- system clock
@@ -83,7 +84,7 @@ bool Oled_1306::begin(TimePack _SysClock, uint8_t option){
    */
   static const char Mname[] PROGMEM = "Oled1306::begin:";
   static const char E0[] PROGMEM = "ERROR setup: SSD1306 allocation failed\nERROR setup: Processing stops!";
-  static const char L0[] PROGMEM = "SSD1306 allocation successful. Version";
+  static const char L0[] PROGMEM = "OLED active. SSD1306 allocation successful. Version";
   
   if ( !_activate ) return 0;                 // the library not activated
   delay(OLEDSTARTDELAY);                      // stability delay
@@ -92,21 +93,25 @@ bool Oled_1306::begin(TimePack _SysClock, uint8_t option){
     return  false;                            // error starting OLED
   } else {
     #if _LOGGMEOLED==1
-      _RunUtil_Oled.InfoStamp(_SysClock,Mname,L0,1,0); Serial.print(getVersion());  Serial.print(F(" -END\n"));
+      _RunUtil_Oled.InfoStamp(_SysClock,Mname,L0,1,0); Serial.print(getVersion()); 
+      Serial.print(F(" Test pattern=")); Serial.print(option); Serial.print(F(" -END\n"));
     #endif //_LOGGMEOLED
     delay(OLEDSTARTDELAY);                    // stability delay
+    OLED_display.clearDisplay();
   }   // end of Oled initiaion
 
   // init tests
+  uint16_t  _useDelay=PostDisplayDelay;       // set delay by default or by parameter
+  if ( _useDelay==0) _useDelay = PostTestDelay;
   switch ( option ) {
     case  0:                                  // do nothing
       break;
     case  1:                                  // line patern for OLED
-      DrawLinePattern(PostTestDelay);
+      DrawLinePattern(_useDelay);
       break;
     case  2:                                  // Rectangular patern for OLED
-      DrawRecPattern(PostTestDelay);
-      delay(PostTestDelay);  
+      DrawRecPattern(_useDelay);
+      delay(_useDelay);  
       break;
     default:                                  // error
       break;

@@ -1,6 +1,6 @@
 /*
  * Oled1306.h library for OLED display SSD1306 applications
- * Created by Sachi Gerlitz, 10-VII-2024 ver 1
+ * Created by Sachi Gerlitz
  * 
  * in this file
  *  constructor:  Oled1306;
@@ -8,8 +8,8 @@
  *                DrawLinePattern; DrawRecPattern; clear; show; InQueueOLED; getVersion;
  *                PeekQueueOLED; DisplayProg; SetCharsToRow;
  * 
- * 24-XII-2024  V2  [rewrite for platformIO]
- *
+ *  29-XII-2024 V2  [rewrite for platformIO]
+ *  10-VII-2024 ver 1
  */
 #ifndef Oled1306_h
   #define Oled1306_h
@@ -56,7 +56,7 @@
   {
     public:
       Oled_1306(bool activate);		                    // constructor
-      bool begin(TimePack SysClock, uint8_t option);
+      bool begin(TimePack _SysClock, uint8_t option, uint16_t PostDisplayDelay);
       uint8_t PopQueueDisplayOLED(TimePack _SysClock);
       bool PushQueueOLED(uint8_t style,  uint8_t scroll, bool flush,
                       const char* P0_pgm, char* P0_dyn, 
